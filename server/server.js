@@ -12,6 +12,7 @@ const session = require('express-session')
 const config=require('./config')
 const port=process.env.PORT || 8080;
 const authy = require('authy')("kParmpXpzP8Ui9Jg8Y1ew2MND0zvxsDU");
+const cors=require('cors');
 //import { Client } from 'authy-client';
 const initializePassport = require('./passport-config')
 const bodyParser = require('body-parser');
@@ -45,7 +46,7 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-
+app.use(cors());
 app.get('/index',checkAuthenticated,(req,res)=>{
     res.render('index.ejs')
 })
