@@ -59,11 +59,11 @@ app.get('/otp',(req,res)=>{
 })
 
 app.get('/register',checkNotAuthenticated,(req,res)=>{
-   res.render('register.ejs')
+  // res.render('register.ejs')
 })
 
 app.get('/login',checkNotAuthenticated,(req,res)=>{
-   res.render('login.ejs')
+ //  res.render('login.ejs')
 })
 
 
