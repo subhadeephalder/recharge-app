@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {
   Card, Button, CardImg, CardTitle, CardText, CardColumns,
   CardSubtitle, CardBody, Row, Col
@@ -57,12 +58,27 @@ const Example = (props) => {
             </Col>
           </Row>
           <br/>
-          <Button outline color="primary">Sign Up</Button>
+          <Button outline color="primary" onClick={e=>onSubmit(e)}>Sign Up</Button>
         </Form>
         </Card>
         </Col>
     </Row>
   );
 };
+function onSubmit(e){
+  
+  axios.post('http://localhost:8080/register',{
+    
+      "name":"Subhadeep",
+    "email":"subhadeephalder16@gmail.com",
+    "contact":"9674209547",
+    "password":"123"
+    
+  }).then(response => {
+    console.log(response.data);
+    
+  })
+
+}
 
 export default Example;
